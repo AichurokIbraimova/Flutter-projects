@@ -7,25 +7,35 @@ class ContainerwWidget extends StatelessWidget {
     required this.containerdinTexti2,
     required this.icon,
     required this.image,
-    this.colordynAty,
+    this.nameColor,
   });
   final String containerdinTexti, containerdinTexti2;
   final IconData icon;
   final String image;
-  final String? colordynAty;
+  final Color? nameColor;
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 200, top: 15),
+      padding: const EdgeInsets.only(left: 200, top: 15),
       height: 90,
       width: double.infinity,
-      color: Colors.grey,
+      color: nameColor,
       child: Row(
         children: [
           Column(
             children: [
-              Text(containerdinTexti),
-              Text(containerdinTexti2),
+              Text(
+                containerdinTexti,
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              Text(
+                containerdinTexti2,
+                style:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+              ),
               Icon(icon),
             ],
           ),

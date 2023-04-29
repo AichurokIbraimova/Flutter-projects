@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/screens/login_screen.dart';
+import 'package:my_app/screens/signup_screen.dart';
 import 'package:my_app/widgets/customized_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -16,14 +17,14 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            SizedBox(
+            const SizedBox(
                 height: 130,
                 width: 180,
                 child: Image(
                   image: AssetImage('assets/logo.png'),
                   fit: BoxFit.cover,
                 )),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             CustomizeButton(
@@ -31,21 +32,24 @@ class WelcomeScreen extends StatelessWidget {
               buttonColor: Colors.black,
               textColor: Colors.white,
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => LoginScreen()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => const LoginScreen()));
               },
             ),
             CustomizeButton(
               buttonText: 'Register',
               buttonColor: Colors.white,
               textColor: Colors.black,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => const SignUpScreen()));
+              },
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
+            const Padding(
+              padding: EdgeInsets.all(10.0),
               child: Text(
                 'Continue as a Guest',
                 style: TextStyle(

@@ -9,6 +9,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  get prefixIcon => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
