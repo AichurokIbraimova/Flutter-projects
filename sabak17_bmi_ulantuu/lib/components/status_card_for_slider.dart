@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:sabak17_bmi_ulantuu/theme/app_colors.dart';
-import 'package:sabak17_bmi_ulantuu/theme/app_texts.dart';
 
-class StatusCard extends StatelessWidget {
-  const StatusCard({
+class StatusCardSlider extends StatelessWidget {
+  const StatusCardSlider({
     super.key,
-    required this.icon,
     required this.text,
+    required this.text1,
+    required this.text2,
   });
-  final IconData icon;
-  final String text;
+
+  final String text, text1, text2;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +21,9 @@ class StatusCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(icon),
             Text(text),
+            Text(text1),
+            Text(text2),
           ],
         ),
       ),

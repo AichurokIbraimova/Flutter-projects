@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:sabak17_bmi_ulantuu/components/status_card.dart';
+import 'package:sabak17_bmi_ulantuu/components/status_card2.dart';
+import 'package:sabak17_bmi_ulantuu/components/status_card_for_slider.dart';
 import 'package:sabak17_bmi_ulantuu/theme/app_colors.dart';
 import 'package:sabak17_bmi_ulantuu/theme/app_texts.dart';
 
@@ -29,11 +31,17 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               child: Row(
                 children: const [
-                  StatusCard(),
+                  StatusCard(
+                    icon: Icons.male,
+                    text: AppTexts.male,
+                  ),
                   SizedBox(
                     width: 39,
                   ),
-                  StatusCard(),
+                  StatusCard(
+                    icon: Icons.female,
+                    text: AppTexts.female,
+                  ),
                 ],
               ),
             ),
@@ -43,7 +51,11 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               child: Row(
                 children: const [
-                  StatusCard(),
+                  StatusCardSlider(
+                    text: AppTexts.heigt,
+                    text1: '180',
+                    text2: 'cm',
+                  ),
                 ],
               ),
             ),
@@ -53,11 +65,19 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               child: Row(
                 children: const [
-                  StatusCard(),
+                  StatusCard2(
+                    text: AppTexts.weight,
+                    san: 60,
+                    icon: Icons.abc,
+                  ),
                   SizedBox(
                     width: 39,
                   ),
-                  StatusCard(),
+                  StatusCard2(
+                    text: AppTexts.weight,
+                    san: 60,
+                    icon: Icons.abc,
+                  ),
                 ],
               ),
             ),
