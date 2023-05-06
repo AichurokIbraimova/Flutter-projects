@@ -13,17 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Welcome',
-      theme: ThemeData(
-      
-        primaryColor: ThemeColors.primaryColor,
-        scaffoldBackgroundColor: ThemeColors.scaffoldBgColor
-        ),
-        home: StartPage()
-    );
-      
-       
-    
+        debugShowCheckedModeBanner: false,
+        title: 'Welcome',
+        theme: ThemeData(
+            primaryColor: ThemeColors.primaryColor,
+            scaffoldBackgroundColor: ThemeColors.scaffoldBgColor),
+        home: const StartPage());
   }
 }
