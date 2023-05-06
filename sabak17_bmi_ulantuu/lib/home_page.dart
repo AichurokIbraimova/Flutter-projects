@@ -20,7 +20,9 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: AppColors.bgcColor,
       appBar: AppBar(
         backgroundColor: AppColors.bgcColor,
-        title: const Text(AppTexts.bmi),
+        title: const Center(
+          child: Text(AppTexts.bmi),
+        ),
         elevation: 0,
       ),
       body: Padding(
@@ -67,16 +69,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: const [
                   StatusCard2(
                     text: AppTexts.weight,
-                    san: 60,
-                    icon: Icons.abc,
+                    san: '60',
+                    //icon: Icons.abc,
                   ),
                   SizedBox(
                     width: 39,
                   ),
                   StatusCard2(
-                    text: AppTexts.weight,
-                    san: 60,
-                    icon: Icons.abc,
+                    text: AppTexts.age,
+                    san: '28',
+                    //icon: Icons.abc,
                   ),
                 ],
               ),
@@ -88,7 +90,12 @@ class _MyHomePageState extends State<MyHomePage> {
         color: AppColors.pinkColor,
         height: 73,
         width: double.infinity,
-        child: const Text(AppTexts.calculator),
+        child: const Center(
+          child: Text(
+            AppTexts.calculator,
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+          ),
+        ),
       ),
     );
   }
