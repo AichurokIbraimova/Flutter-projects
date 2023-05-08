@@ -13,7 +13,7 @@ class CircularButton extends StatelessWidget {
       width: 45,
       height: 45,
       child: FloatingActionButton(
-        backgroundColor: const Color(0xff5C5B5B),
+        backgroundColor: AppColors.greyColor,
         onPressed: () {},
         child: Icon(icon, color: AppColors.whiteColor),
       ),

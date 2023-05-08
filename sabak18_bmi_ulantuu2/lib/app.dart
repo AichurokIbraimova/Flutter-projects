@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sabak18_bmi_ulantuu2/for_example/example.dart';
 import 'package:sabak18_bmi_ulantuu2/home_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -7,10 +8,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData.dark(),
-      home: const MyHomePage(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData.dark(),
+        //home: const MyHomePage(),
+        home: ForExample());
   }
 }

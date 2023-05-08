@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:sabak18_bmi_ulantuu2/components/calculate_button.dart';
+import 'package:sabak18_bmi_ulantuu2/components/height.dart';
+import 'package:sabak18_bmi_ulantuu2/components/male_female.dart';
 
 import 'package:sabak18_bmi_ulantuu2/components/status_card.dart';
-import 'package:sabak18_bmi_ulantuu2/components/status_card2.dart';
-import 'package:sabak18_bmi_ulantuu2/components/status_card_for_slider.dart';
+import 'package:sabak18_bmi_ulantuu2/components/weight_age.dart';
+
 import 'package:sabak18_bmi_ulantuu2/theme/app_colors.dart';
 import 'package:sabak18_bmi_ulantuu2/theme/app_texts.dart';
-import 'package:sabak18_bmi_ulantuu2/theme/app_texts_style.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -35,17 +37,28 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 children: const [
                   StatusCard(
-                    icon: Icons.male,
-                    text: AppTexts.male,
+                    child: MaleFemale(
+                      icon: Icons.male,
+                      text: AppTexts.male,
+                    ),
                   ),
                   SizedBox(
-                    width: 39,
+                    width: 35,
                   ),
                   StatusCard(
-                    icon: Icons.female,
-                    text: AppTexts.female,
+                    child: MaleFemale(
+                      icon: Icons.female,
+                      text: AppTexts.female,
+                    ),
                   ),
                 ],
+              ),
+            ),
+            const StatusCard(
+              child: Height(
+                text1: AppTexts.heigt,
+                text: '180',
+                text2: 'cm',
               ),
             ),
             const SizedBox(
@@ -54,30 +67,20 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               child: Row(
                 children: const [
-                  StatusCardSlider(
-                    text: AppTexts.heigt,
-                    text1: '180',
-                    text2: 'cm',
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 18,
-            ),
-            Expanded(
-              child: Row(
-                children: const [
-                  StatusCard2(
-                    text: AppTexts.weight,
-                    san: '60',
+                  StatusCard(
+                    child: WeightAge(
+                      text: AppTexts.weight,
+                      san: '60',
+                    ),
                   ),
                   SizedBox(
-                    width: 39,
+                    width: 25,
                   ),
-                  StatusCard2(
-                    text: AppTexts.age,
-                    san: '28',
+                  StatusCard(
+                    child: WeightAge(
+                      text: AppTexts.age,
+                      san: '28',
+                    ),
                   ),
                 ],
               ),
@@ -85,15 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        color: AppColors.pinkColor,
-        height: 73,
-        width: double.infinity,
-        child: const Center(
-          child: Text(AppTexts.calculator,
-              style: AppTextsStyles.calculateTextStyle),
-        ),
-      ),
+      bottomNavigationBar: const CalculateButton(),
     );
   }
 }
