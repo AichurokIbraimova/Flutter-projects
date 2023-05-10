@@ -10,7 +10,6 @@ class StatusCard extends StatelessWidget {
     required this.child,
   });
   final Widget child;
-
   @override
   Widget build(BuildContext context) {
     return Expanded(

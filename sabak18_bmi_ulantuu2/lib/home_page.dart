@@ -17,6 +17,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool isTrue = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,20 +36,38 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Expanded(
               child: Row(
-                children: const [
+                children: [
                   StatusCard(
-                    child: MaleFemale(
-                      icon: Icons.male,
-                      text: AppTexts.male,
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          isTrue = true;
+                          print('object1');
+                        });
+                      },
+                      child: MaleFemale(
+                        icon: Icons.male,
+                        text: AppTexts.male,
+                        isTrue: isTrue,
+                      ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 35,
                   ),
                   StatusCard(
-                    child: MaleFemale(
-                      icon: Icons.female,
-                      text: AppTexts.female,
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          isTrue = false;
+                          print('object2');
+                        });
+                      },
+                      child: MaleFemale(
+                        icon: Icons.female,
+                        text: AppTexts.female,
+                        isTrue: !isTrue,
+                      ),
                     ),
                   ),
                 ],
