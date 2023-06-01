@@ -42,7 +42,7 @@ class Height extends StatelessWidget {
         ),
         SizedBox(
           width: 300,
-          child: CupertinoSlider(
+          child: Slider.adaptive(
               value: height,
               min: 0,
               max: 240,

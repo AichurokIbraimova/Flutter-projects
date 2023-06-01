@@ -24,8 +24,10 @@ class CalculateButton extends StatelessWidget {
         ),
       ),
       onPressed: () {},
-      child: const Text(AppTexts.calculator,
-          style: AppTextsStyles.calculateTextStyle),
+      child: const Text(
+        AppTexts.calculator,
+        style: AppTextsStyles.calculateTextStyle,
+      ),
     );
   }
 }
