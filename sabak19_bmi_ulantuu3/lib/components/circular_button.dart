@@ -5,10 +5,10 @@ class CircularButton extends StatelessWidget {
   const CircularButton({
     super.key,
     required this.icon,
-    required this.onPressed,
+    required this.basuu,
   });
   final IconData icon;
-  final void Function() onPressed;
+  final void Function() basuu;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -16,7 +16,7 @@ class CircularButton extends StatelessWidget {
       height: 45,
       child: FloatingActionButton(
         backgroundColor: AppColors.greyColor,
-        onPressed: () {},
+        onPressed: basuu,
         child: Icon(icon, color: AppColors.whiteColor),
       ),
     );

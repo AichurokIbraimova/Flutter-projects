@@ -18,6 +18,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool isTrue = true;
+  int weight = 0;
+  int age = 0;
+  double height = 180;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,11 +76,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            const StatusCard(
+            StatusCard(
               child: Height(
-                text1: AppTexts.heigt,
-                text: '180',
+                text: AppTexts.heigt,
+                text1: '${height.toInt()}',
                 text2: 'cm',
+                height: height,
+                onChanged: (value) {
+                  setState(() {
+                    height = value;
+                  });
+                },
               ),
             ),
             const SizedBox(
@@ -85,20 +94,40 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Expanded(
               child: Row(
-                children: const [
+                children: [
                   StatusCard(
                     child: WeightAge(
                       text: AppTexts.weight,
-                      san: '60',
+                      san: '$weight',
+                      removebasuu: () {
+                        setState(() {
+                          weight--;
+                        });
+                      },
+                      addbasuu: () {
+                        setState(() {
+                          weight++;
+                        });
+                      },
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 25,
                   ),
                   StatusCard(
                     child: WeightAge(
                       text: AppTexts.age,
-                      san: '28',
+                      san: '$age',
+                      removebasuu: () {
+                        setState(() {
+                          age--;
+                        });
+                      },
+                      addbasuu: () {
+                        setState(() {
+                          age++;
+                        });
+                      },
                     ),
                   ),
                 ],
