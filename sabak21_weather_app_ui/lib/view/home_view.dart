@@ -45,26 +45,26 @@ class _MyHomeViewState extends State<MyHomeView> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Row(
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(left: 10),
                 ),
-                Text('8', style: AppTextStyles.sanTextStyle),
+                const Text('8', style: AppTextStyles.sanTextStyle),
                 Image.asset(
                   'assets/image/cloud.image.png',
                   height: 150,
                   width: 150,
-                )
+                ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
-            Align(
+            const Align(
               alignment: Alignment.centerRight,
               child: Text(
                 'You\'ll\n need\n and',
@@ -74,7 +74,7 @@ class _MyHomeViewState extends State<MyHomeView> {
                 ),
               ),
             ),
-            Text(
+            const Text(
               'Bishkek',
               style: TextStyle(color: Colors.white, fontSize: 70),
             ),
