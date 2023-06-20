@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   dynamic response;
   Future<Weather?> fetchData() async {
     Dio dio = Dio();
-    await Future.delayed(Duration(seconds: 4));
+    // await Future.delayed(Duration(seconds: 4));
     final response = await dio.get(ApiConst.WeatherData);
     if (response.statusCode == 200) {
       final Weather weather = Weather(

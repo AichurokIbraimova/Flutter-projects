@@ -42,7 +42,7 @@ class WelcomeScreen extends StatelessWidget {
               textColor: Colors.black,
               onPressed: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => SignUpScreen()));
+                    context, MaterialPageRoute(builder: (_) => const SignUpScreen()));
               },
             ),
             const SizedBox(
