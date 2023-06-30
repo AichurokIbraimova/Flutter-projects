@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
     LocationPermission permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
+      print('$permission');
     }
   }
 
@@ -89,7 +90,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        await getLocation();
+                      },
                       icon: const Icon(
                         Icons.near_me,
                         size: 40,
