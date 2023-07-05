@@ -11,6 +11,7 @@ import 'package:share_plus/share_plus.dart';
 class DetailView extends StatelessWidget {
   const DetailView({super.key, required this.article});
   final Article article;
+
   @override
   Widget build(BuildContext context) {
     final newsTime = DateFormat('d MMMM y H:m:s').format(
@@ -54,7 +55,9 @@ class DetailView extends StatelessWidget {
                 height: 15,
               ),
               DetailDescription(article: article),
-              const DetailSiteButton()
+              DetailSiteButton(
+                article: article,
+              )
             ],
           ),
         ),

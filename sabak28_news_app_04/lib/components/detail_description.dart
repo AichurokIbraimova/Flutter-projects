@@ -13,7 +13,7 @@ class DetailDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      article.description,
+      article.description.toString(),
       textAlign: TextAlign.center,
       style: AppTextStyles.descriptionTextStyle,
     );
