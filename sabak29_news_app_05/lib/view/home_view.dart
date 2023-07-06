@@ -48,7 +48,7 @@ class _HomeViewState extends State<HomeView> {
             itemBuilder: (BuildContext context) {
               return countriesSet
                   .map(
-                    (e) => PopupMenuItem(
+                    (e) => PopupMenuItem<Country>(
                       value: e,
                       child: Text(e.name),
                     ),

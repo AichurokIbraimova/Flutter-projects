@@ -11,7 +11,7 @@ class DetailSiteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Uri url = Uri.parse(article.url);
+    final Uri url = Uri.parse(article.url.toString());
     return MaterialButton(
       color: Colors.deepOrange,
       onPressed: () async {
@@ -19,7 +19,7 @@ class DetailSiteButton extends StatelessWidget {
           throw Exception('Could not launch $url');
         }
       },
-      child: Text('Сайтын коруу'),
+      child: const Text('Сайтын коруу'),
     );
   }
 }

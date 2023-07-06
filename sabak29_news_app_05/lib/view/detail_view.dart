@@ -26,11 +26,11 @@ class DetailView extends StatelessWidget {
         title: Text(
           article.title,
         ),
-        actions: article.url.isNotEmpty
+        actions: article.url!.isNotEmpty
             ? [
                 IconButton(
                   onPressed: () {
-                    Share.share(article.url);
+                    Share.share(article.url.toString());
                   },
                   icon: const Icon(Icons.share),
                 )
