@@ -8,4 +8,6 @@ class AppColors {
   static const dividerColor = Color.fromARGB(255, 222, 149, 149);
   static const white = Colors.white;
   static const scaffol = Colors.white;
+  static const red = Colors.red;
+  static const green = Colors.green;
 }

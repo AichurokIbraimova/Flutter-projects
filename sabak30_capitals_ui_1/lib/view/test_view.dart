@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sabak30_capitals_ui_1/constants/app_colors.dart';
+import 'package:sabak30_capitals_ui_1/constants/app_text_styles.dart';
 
 class TestView extends StatefulWidget {
   const TestView({super.key});
@@ -33,16 +34,13 @@ class _TestViewState extends State<TestView> {
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text(
-                  '0',
-                  style: TextStyle(fontSize: 15),
-                ),
-                Text('32'),
-                Text('0'),
+                Text('0', style: AppTextStyle.num1Style),
+                Text('32', style: AppTextStyle.num2Style),
+                Text('0', style: AppTextStyle.num3Style)
               ],
             ),
           ),
-          const SizedBox(width: 30),
+          const SizedBox(width: 40),
           const Text(
             '3',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
@@ -61,6 +59,20 @@ class _TestViewState extends State<TestView> {
             color: Colors.red,
           ),
           Icon(Icons.more_vert)
+        ],
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Slider(
+              value: 180,
+              onChanged: (v) {
+                setState(() {});
+              },
+              min: 0,
+              max: 200,
+            ),
+          ),
         ],
       ),
     );
