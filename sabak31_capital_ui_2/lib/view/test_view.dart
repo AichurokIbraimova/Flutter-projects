@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sabak30_capitals_ui_1/constants/app_colors.dart';
-import 'package:sabak30_capitals_ui_1/constants/app_text_styles.dart';
+import 'package:sabak31_capitals_ui_2/constants/app_colors.dart';
+import 'package:sabak31_capitals_ui_2/constants/app_text_styles.dart';
 
 class TestView extends StatefulWidget {
   const TestView({super.key});
