@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sabak31_capitals_ui_2/constants/app_colors.dart';
-import 'package:sabak31_capitals_ui_2/view/test_view.dart';
+import 'package:sabak31_capital_ui_2/constants/app_colors.dart';
+import 'package:sabak31_capital_ui_2/model/continents.dart';
+import 'package:sabak31_capital_ui_2/model/suroo_joop.dart';
+import 'package:sabak31_capital_ui_2/view/test_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -11,23 +13,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  List<String> continents = [
-    'Asia',
-    'Europe',
-    'North America',
-    'South America',
-    'Africa',
-    'Australia',
-  ];
-
-  // List<String> images = [
-  //   'africa.svg',
-  //   'asia.svg',
-  //   'australia.svg',
-  //   'europe.svg',
-  //   'northAmerica.svg',
-  //   'southAmerica.svg'
-  // ];
+  late List<Continents> continents = continentsList;
 
   Map images = {
     'Asia': 'asia.svg',
@@ -43,7 +29,10 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: AppColors.scaffoldColor,
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Мамлекеттер борбору'),
+        title: Text(
+          'Мамлекеттер борбору',
+          style: TextStyle(color: continents[3].color),
+        ),
         actions: [
           IconButton(
             onPressed: () {},
@@ -70,7 +59,7 @@ class _HomeViewState extends State<HomeView> {
             color: AppColors.dividerColor,
             height: 1,
           ),
-          // Gridview
+          // Gridview///////////////////////////////
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 10, top: 25, right: 10),
@@ -87,7 +76,9 @@ class _HomeViewState extends State<HomeView> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const TestView(),
+                          builder: (context) => TestView(
+                            suroo: surooJoopList,
+                          ),
                         ),
                       );
                     },
@@ -99,13 +90,17 @@ class _HomeViewState extends State<HomeView> {
                       child: Column(
                         children: [
                           Text(
-                            continents[index],
-                            style: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                            continents[index].name,
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: continents[index].color),
                           ),
-                          // SvgPicture.asset(
-                          //   'assets/continents/${images[continents[index]]}',
-                          // ),
+                          SvgPicture.asset(
+                            'assets/continents/${continents[index].image}.svg',
+                            width: 90,
+                            color: continents[index].color,
+                          ),
                         ],
                       ),
                     ),

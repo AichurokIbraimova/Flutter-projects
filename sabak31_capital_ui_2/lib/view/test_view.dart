@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:sabak31_capitals_ui_2/constants/app_colors.dart';
-import 'package:sabak31_capitals_ui_2/constants/app_text_styles.dart';
+import 'package:sabak31_capital_ui_2/constants/app_colors.dart';
+import 'package:sabak31_capital_ui_2/constants/app_text_styles.dart';
+import 'package:sabak31_capital_ui_2/model/suroo_joop.dart';
 
 class TestView extends StatefulWidget {
-  const TestView({super.key});
-
+  const TestView({super.key, required this.suroo});
+  final List<Suroo> suroo;
   @override
   State<TestView> createState() => _TestViewState();
 }
 
 class _TestViewState extends State<TestView> {
+  int indexText = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,15 +65,52 @@ class _TestViewState extends State<TestView> {
       ),
       body: Column(
         children: [
-          Expanded(
-            child: Slider(
-              value: 180,
-              onChanged: (v) {},
-              min: 0,
-              max: 200,
+          Slider(
+            activeColor: Colors.black,
+            value: 200,
+            onChanged: (v) {},
+            min: 0,
+            max: 200,
+          ),
+          Text(
+            widget.suroo[indexText].text,
+            style: AppTextStyle.capitalsStyle,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Image.asset(
+              'assets/capitals/${widget.suroo[indexText].image}.jpg',
             ),
           ),
-          Text('Paris')
+          const SizedBox(height: 10),
+          Expanded(
+            // flex: 2,
+            child: GridView.builder(
+              padding: const EdgeInsets.only(
+                left: 5,
+                right: 5,
+              ),
+              // physics: NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 1.6,
+              ),
+              itemCount: 4,
+              itemBuilder: ((context, index) {
+                return Card(
+                  color: Colors.grey[400],
+                  child: InkWell(
+                    onTap: () {
+                      // onTap(jooptor[index].isTrue);
+                    },
+                    child: Center(
+                      child: Text(widget.suroo[indexText].jooptor.toString()),
+                    ),
+                  ),
+                );
+              }),
+            ),
+          ),
         ],
       ),
     );
