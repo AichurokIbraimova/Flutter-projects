@@ -6,19 +6,19 @@ class Suroo {
 }
 
 class Joop {
-  const Joop({required this.text, required this.tuuraJoop});
+  const Joop({required this.text, required this.isBool});
   final String text;
-  final bool tuuraJoop;
+  final bool isBool;
 }
 
 const Suroo s1 = Suroo(
   text: 'Paris',
   image: 'paris',
   jooptor: [
-    Joop(text: 'Germany', tuuraJoop: false),
-    Joop(text: 'Finland', tuuraJoop: false),
-    Joop(text: 'France', tuuraJoop: true),
-    Joop(text: 'Italia', tuuraJoop: false)
+    Joop(text: 'Germany', isBool: false),
+    Joop(text: 'Finland', isBool: false),
+    Joop(text: 'France', isBool: true),
+    Joop(text: 'Italia', isBool: false)
   ],
 );
 
@@ -26,20 +26,20 @@ const Suroo s2 = Suroo(
   text: 'London',
   image: 'london',
   jooptor: [
-    Joop(text: 'Spain', tuuraJoop: false),
-    Joop(text: 'Great Britain', tuuraJoop: true),
-    Joop(text: 'France', tuuraJoop: false),
-    Joop(text: 'Russia', tuuraJoop: false)
+    Joop(text: 'Spain', isBool: false),
+    Joop(text: 'Great Britain', isBool: true),
+    Joop(text: 'France', isBool: false),
+    Joop(text: 'Russia', isBool: false)
   ],
 );
 const Suroo s3 = Suroo(
   text: 'Brusel',
   image: 'brusel',
   jooptor: [
-    Joop(text: 'MAkedonia', tuuraJoop: false),
-    Joop(text: 'Portugal', tuuraJoop: false),
-    Joop(text: 'Albania', tuuraJoop: false),
-    Joop(text: 'Belgium', tuuraJoop: true)
+    Joop(text: 'MAkedonia', isBool: false),
+    Joop(text: 'Portugal', isBool: false),
+    Joop(text: 'Albania', isBool: false),
+    Joop(text: 'Belgium', isBool: true)
   ],
 );
 
@@ -47,10 +47,10 @@ const Suroo s4 = Suroo(
   text: 'Copenhagen',
   image: 'copenhagen',
   jooptor: [
-    Joop(text: 'Denmark', tuuraJoop: true),
-    Joop(text: 'Ukrain', tuuraJoop: false),
-    Joop(text: 'Poland', tuuraJoop: false),
-    Joop(text: 'Norway', tuuraJoop: false)
+    Joop(text: 'Denmark', isBool: true),
+    Joop(text: 'Ukrain', isBool: false),
+    Joop(text: 'Poland', isBool: false),
+    Joop(text: 'Norway', isBool: false)
   ],
 );
 
@@ -58,10 +58,10 @@ const Suroo s5 = Suroo(
   text: 'Berlin',
   image: 'berlin',
   jooptor: [
-    Joop(text: 'Germany', tuuraJoop: true),
-    Joop(text: 'Sweden', tuuraJoop: false),
-    Joop(text: 'Greece', tuuraJoop: false),
-    Joop(text: 'Turkey', tuuraJoop: false)
+    Joop(text: 'Germany', isBool: true),
+    Joop(text: 'Sweden', isBool: false),
+    Joop(text: 'Greece', isBool: false),
+    Joop(text: 'Turkey', isBool: false)
   ],
 );
 

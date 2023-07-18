@@ -96,10 +96,12 @@ class _HomeViewState extends State<HomeView> {
                                 fontWeight: FontWeight.bold,
                                 color: continents[index].color),
                           ),
-                          SvgPicture.asset(
-                            'assets/continents/${continents[index].image}.svg',
-                            width: 90,
-                            color: continents[index].color,
+                          Expanded(
+                            child: SvgPicture.asset(
+                              'assets/continents/${continents[index].image}.svg',
+                              width: 90,
+                              color: continents[index].color,
+                            ),
                           ),
                         ],
                       ),

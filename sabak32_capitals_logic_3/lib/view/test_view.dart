@@ -12,6 +12,9 @@ class TestView extends StatefulWidget {
 
 class _TestViewState extends State<TestView> {
   int indexText = 0;
+  int tuuraJoop = 0;
+  int kataJoop = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,12 +36,21 @@ class _TestViewState extends State<TestView> {
               ],
               color: AppColors.white,
             ),
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text('0', style: AppTextStyle.num1Style),
-                Text('32', style: AppTextStyle.num2Style),
-                Text('0', style: AppTextStyle.num3Style)
+                Text(
+                  '$kataJoop',
+                  style: AppTextStyle.num1Style,
+                ),
+                const Text(
+                  '32',
+                  style: AppTextStyle.num2Style,
+                ),
+                Text(
+                  '$tuuraJoop',
+                  style: AppTextStyle.num3Style,
+                ),
               ],
             ),
           ),
@@ -60,17 +72,17 @@ class _TestViewState extends State<TestView> {
             Icons.favorite,
             color: Colors.red,
           ),
-          Icon(Icons.more_vert)
+          const Icon(Icons.more_vert)
         ],
       ),
       body: Column(
         children: [
           Slider(
             activeColor: Colors.black,
-            value: 200,
-            onChanged: (v) {},
+            value: indexText.toDouble(),
+            onChanged: (value) {},
             min: 0,
-            max: 200,
+            max: 5,
           ),
           Text(
             widget.suroo[indexText].text,
@@ -101,10 +113,43 @@ class _TestViewState extends State<TestView> {
                   color: Colors.grey[400],
                   child: InkWell(
                     onTap: () {
-                      // onTap(jooptor[index].isTrue);
+                      if (indexText < widget.suroo.length) {
+                        if (widget.suroo[indexText].jooptor[index].isBool ==
+                            true) {
+                          ++tuuraJoop;
+                        } else {
+                          ++kataJoop;
+                        }
+                        setState(() {});
+                        indexText++;
+                        if (indexText == widget.suroo.length) {
+                          indexText--;
+                          showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                              title: const Text('Сиздин тест жыйынтыгыныз!'),
+                              content:
+                                  Text('Туура: $tuuraJoop\nКата:$kataJoop'),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () {
+                                    indexText = 0;
+                                    kataJoop = 0;
+                                    tuuraJoop = 0;
+                                    setState(() {
+                                      Navigator.pop(context);
+                                    });
+                                  },
+                                  child: const Text('Cancel'),
+                                ),
+                              ],
+                            ),
+                          );
+                        }
+                      }
                     },
                     child: Center(
-                      child: Text(widget.suroo[indexText].jooptor.toString()),
+                      child: Text(widget.suroo[indexText].jooptor[index].text),
                     ),
                   ),
                 );
