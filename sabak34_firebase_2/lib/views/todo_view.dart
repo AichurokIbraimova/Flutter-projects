@@ -1,6 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sabak34_firebase_2/views/home_view.dart';
+import 'package:sabak34_firebase_2/model.dart';
 
 class TodoView extends StatefulWidget {
   const TodoView({super.key});
@@ -17,20 +20,14 @@ class _TodoViewState extends State<TodoView> {
   final _formKey = GlobalKey<FormState>();
 
   /////////////////////////////////////
-  Future<void> readData() async {
+  Future<void> addTodo() async {
     final db = FirebaseFirestore.instance;
-    await db.collection("todos").get().then((event) {
-      for (var doc in event.docs) {
-        print("${doc.id} => ${doc.data()}");
-      }
-    });
-  }
-
-  @override
-  void initState() {
-    readData();
-
-    super.initState();
+    final todos = Todo(
+        title: _titleController.text,
+        description: _descriptionController.text,
+        isCompleted: isCompleted,
+        author: _authorController.text);
+    await db.collection('todos').add(todos.toMap());
   }
 
   @override
@@ -114,23 +111,43 @@ class _TodoViewState extends State<TodoView> {
                 height: 20,
               ),
               ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
-                onPressed: () {
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.grey,
+                ),
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (c) => const HomeView(),
-                      ),
-                    );
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return SimpleDialog(
+                            backgroundColor: Colors.white.withOpacity(0.5),
+                            title: const Text(
+                              'Сиздин маалыматыныз жонотулуудо',
+                            ),
+                            children: [
+                              CupertinoActivityIndicator(
+                                radius: 20,
+                                color: Colors.blue.withOpacity(0.5),
+                              ),
+                            ],
+                          );
+                        });
+                    await addTodo();
+
+                    Navigator.popUntil(context, (route) => route.isFirst);
                   } else {
                     null;
                   }
                 },
-                icon: const Icon(Icons.arrow_upward, color: Colors.white),
+                icon: const Icon(
+                  Icons.arrow_upward,
+                  color: Colors.white,
+                ),
                 label: const Text(
                   'Отправить',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ],
